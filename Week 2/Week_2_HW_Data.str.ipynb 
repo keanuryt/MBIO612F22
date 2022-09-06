@@ -1,0 +1,1782 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "e2be277d",
+   "metadata": {
+    "pycharm": {
+     "name": "#%% md\n"
+    }
+   },
+   "source": [
+    "### Question 0\n",
+    "\n",
+    "*  Draw a concepts diagram that uses all the following Github terminology \n",
+    "   * Include any missing keywords that will simplify the concepts diagrams \n",
+    "\n",
+    "\n",
+    "`Push`, `Repository`, `Clone`, `Pull`, `Pull Request`, `Branch`, `Merging`, `Github Client`, `README file`, `Private or Public`\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5349d73f",
+   "metadata": {
+    "collapsed": false,
+    "jupyter": {
+     "outputs_hidden": false
+    },
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Add your photo here"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1b89533c",
+   "metadata": {
+    "pycharm": {
+     "name": "#%% md\n"
+    }
+   },
+   "source": [
+    "#### Question 1\n",
+    "\n",
+    "`matrix(c(1,2,3,4,5,6) , nrow = 3)`\n",
+    "\n",
+    "* Running the expression produces the following matrix\n",
+    "\n",
+    "|  |  |\n",
+    "|---|---|\n",
+    "| 1 | 4 |\n",
+    "| 2 | 5 |\n",
+    "| 3 | 6 |\n",
+    "\n",
+    "* How can you modify the call to `matrix()` to produce the following matrix instead?\n",
+    "\n",
+    "|   | col_1 |  col_2 |\n",
+    "| --- |---|---|\n",
+    "| row_1 | 1 | 2 |\n",
+    "| row_2 | 3 | 4 |\n",
+    "| row_3 | 5 | 6 |\n",
+    "\n",
+    "* Note that you need to name the columns (col_1 and col_2) and name the rows (row_1, row_2, row_3)\n",
+    "\n",
+    "Hint: Use the `?` symbol to invoke the matrix documentation"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "0d85e284-9027-4e89-8f19-24d644e4592f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A matrix: 3 × 2 of type dbl</caption>\n",
+       "<tbody>\n",
+       "\t<tr><td>1</td><td>4</td></tr>\n",
+       "\t<tr><td>2</td><td>5</td></tr>\n",
+       "\t<tr><td>3</td><td>6</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A matrix: 3 × 2 of type dbl\n",
+       "\\begin{tabular}{ll}\n",
+       "\t 1 & 4\\\\\n",
+       "\t 2 & 5\\\\\n",
+       "\t 3 & 6\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A matrix: 3 × 2 of type dbl\n",
+       "\n",
+       "| 1 | 4 |\n",
+       "| 2 | 5 |\n",
+       "| 3 | 6 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "     [,1] [,2]\n",
+       "[1,] 1    4   \n",
+       "[2,] 2    5   \n",
+       "[3,] 3    6   "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "matrix(c(1,2,3,4,5,6) , nrow = 3)\n",
+    "matrix_1 <- matrix(c(1,2,3,4,5,6) , nrow = 3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "2b0f1abf-6034-47c1-874b-020be1bb0b88",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A matrix: 3 × 2 of type dbl</caption>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>row_1</th><td>1</td><td>4</td></tr>\n",
+       "\t<tr><th scope=row>row_2</th><td>2</td><td>5</td></tr>\n",
+       "\t<tr><th scope=row>row_3</th><td>3</td><td>6</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A matrix: 3 × 2 of type dbl\n",
+       "\\begin{tabular}{r|ll}\n",
+       "\trow\\_1 & 1 & 4\\\\\n",
+       "\trow\\_2 & 2 & 5\\\\\n",
+       "\trow\\_3 & 3 & 6\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A matrix: 3 × 2 of type dbl\n",
+       "\n",
+       "| row_1 | 1 | 4 |\n",
+       "| row_2 | 2 | 5 |\n",
+       "| row_3 | 3 | 6 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "      [,1] [,2]\n",
+       "row_1 1    4   \n",
+       "row_2 2    5   \n",
+       "row_3 3    6   "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "rownames(matrix_1) <- c(\"row_1\", \"row_2\", \"row_3\")\n",
+    "matrix_1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "49928893-973e-43cd-92d5-8537b5d7f119",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A matrix: 3 × 2 of type dbl</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>col_1</th><th scope=col>col_2</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>row_1</th><td>1</td><td>4</td></tr>\n",
+       "\t<tr><th scope=row>row_2</th><td>2</td><td>5</td></tr>\n",
+       "\t<tr><th scope=row>row_3</th><td>3</td><td>6</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A matrix: 3 × 2 of type dbl\n",
+       "\\begin{tabular}{r|ll}\n",
+       "  & col\\_1 & col\\_2\\\\\n",
+       "\\hline\n",
+       "\trow\\_1 & 1 & 4\\\\\n",
+       "\trow\\_2 & 2 & 5\\\\\n",
+       "\trow\\_3 & 3 & 6\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A matrix: 3 × 2 of type dbl\n",
+       "\n",
+       "| <!--/--> | col_1 | col_2 |\n",
+       "|---|---|---|\n",
+       "| row_1 | 1 | 4 |\n",
+       "| row_2 | 2 | 5 |\n",
+       "| row_3 | 3 | 6 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "      col_1 col_2\n",
+       "row_1 1     4    \n",
+       "row_2 2     5    \n",
+       "row_3 3     6    "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "colnames(matrix_1) <- c(\"col_1\", \"col_2\")\n",
+    "matrix_1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ba4962d3",
+   "metadata": {
+    "pycharm": {
+     "name": "#%% md\n"
+    }
+   },
+   "source": [
+    "#### Question 2\n",
+    "\n",
+    "* Load then sort the airquality data frame on its `Temp` and `Solar.R` columns in reverse order (largest to smallest values)\n",
+    "  * The function to sort a data frame is called order\n",
+    "* Display only the first 15 lines of your table"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "55d4ecc2",
+   "metadata": {
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "data(\"airquality\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "id": "e88d0dfb-be06-474f-8672-a6c77d99375b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 6 × 6</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Ozone</th><th scope=col>Solar.R</th><th scope=col>Wind</th><th scope=col>Temp</th><th scope=col>Month</th><th scope=col>Day</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>1</th><td>41</td><td>190</td><td> 7.4</td><td>67</td><td>5</td><td>1</td></tr>\n",
+       "\t<tr><th scope=row>2</th><td>36</td><td>118</td><td> 8.0</td><td>72</td><td>5</td><td>2</td></tr>\n",
+       "\t<tr><th scope=row>3</th><td>12</td><td>149</td><td>12.6</td><td>74</td><td>5</td><td>3</td></tr>\n",
+       "\t<tr><th scope=row>4</th><td>18</td><td>313</td><td>11.5</td><td>62</td><td>5</td><td>4</td></tr>\n",
+       "\t<tr><th scope=row>5</th><td>NA</td><td> NA</td><td>14.3</td><td>56</td><td>5</td><td>5</td></tr>\n",
+       "\t<tr><th scope=row>6</th><td>28</td><td> NA</td><td>14.9</td><td>66</td><td>5</td><td>6</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 6 × 6\n",
+       "\\begin{tabular}{r|llllll}\n",
+       "  & Ozone & Solar.R & Wind & Temp & Month & Day\\\\\n",
+       "  & <int> & <int> & <dbl> & <int> & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t1 & 41 & 190 &  7.4 & 67 & 5 & 1\\\\\n",
+       "\t2 & 36 & 118 &  8.0 & 72 & 5 & 2\\\\\n",
+       "\t3 & 12 & 149 & 12.6 & 74 & 5 & 3\\\\\n",
+       "\t4 & 18 & 313 & 11.5 & 62 & 5 & 4\\\\\n",
+       "\t5 & NA &  NA & 14.3 & 56 & 5 & 5\\\\\n",
+       "\t6 & 28 &  NA & 14.9 & 66 & 5 & 6\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 6 × 6\n",
+       "\n",
+       "| <!--/--> | Ozone &lt;int&gt; | Solar.R &lt;int&gt; | Wind &lt;dbl&gt; | Temp &lt;int&gt; | Month &lt;int&gt; | Day &lt;int&gt; |\n",
+       "|---|---|---|---|---|---|---|\n",
+       "| 1 | 41 | 190 |  7.4 | 67 | 5 | 1 |\n",
+       "| 2 | 36 | 118 |  8.0 | 72 | 5 | 2 |\n",
+       "| 3 | 12 | 149 | 12.6 | 74 | 5 | 3 |\n",
+       "| 4 | 18 | 313 | 11.5 | 62 | 5 | 4 |\n",
+       "| 5 | NA |  NA | 14.3 | 56 | 5 | 5 |\n",
+       "| 6 | 28 |  NA | 14.9 | 66 | 5 | 6 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "  Ozone Solar.R Wind Temp Month Day\n",
+       "1 41    190      7.4 67   5     1  \n",
+       "2 36    118      8.0 72   5     2  \n",
+       "3 12    149     12.6 74   5     3  \n",
+       "4 18    313     11.5 62   5     4  \n",
+       "5 NA     NA     14.3 56   5     5  \n",
+       "6 28     NA     14.9 66   5     6  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "AQ <- airquality\n",
+    "head(AQ)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "id": "e046432e-5470-4be2-9de1-7f05659c8300",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "     Ozone           Solar.R           Wind             Temp      \n",
+       " Min.   :  1.00   Min.   :  7.0   Min.   : 1.700   Min.   :56.00  \n",
+       " 1st Qu.: 18.00   1st Qu.:115.8   1st Qu.: 7.400   1st Qu.:72.00  \n",
+       " Median : 31.50   Median :205.0   Median : 9.700   Median :79.00  \n",
+       " Mean   : 42.13   Mean   :185.9   Mean   : 9.958   Mean   :77.88  \n",
+       " 3rd Qu.: 63.25   3rd Qu.:258.8   3rd Qu.:11.500   3rd Qu.:85.00  \n",
+       " Max.   :168.00   Max.   :334.0   Max.   :20.700   Max.   :97.00  \n",
+       " NA's   :37       NA's   :7                                       \n",
+       "     Month            Day      \n",
+       " Min.   :5.000   Min.   : 1.0  \n",
+       " 1st Qu.:6.000   1st Qu.: 8.0  \n",
+       " Median :7.000   Median :16.0  \n",
+       " Mean   :6.993   Mean   :15.8  \n",
+       " 3rd Qu.:8.000   3rd Qu.:23.0  \n",
+       " Max.   :9.000   Max.   :31.0  \n",
+       "                               "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "'data.frame':\t153 obs. of  6 variables:\n",
+      " $ Ozone  : int  41 36 12 18 NA 28 23 19 8 NA ...\n",
+      " $ Solar.R: int  190 118 149 313 NA NA 299 99 19 194 ...\n",
+      " $ Wind   : num  7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...\n",
+      " $ Temp   : int  67 72 74 62 56 66 65 59 61 69 ...\n",
+      " $ Month  : int  5 5 5 5 5 5 5 5 5 5 ...\n",
+      " $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...\n"
+     ]
+    }
+   ],
+   "source": [
+    "summary(AQ)\n",
+    "str(AQ)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "id": "f1b62a18-fdbd-4dd5-bd93-663cfa07c391",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 6 × 2</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Temp</th><th scope=col>Solar.R</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>1</th><td>67</td><td>190</td></tr>\n",
+       "\t<tr><th scope=row>2</th><td>72</td><td>118</td></tr>\n",
+       "\t<tr><th scope=row>3</th><td>74</td><td>149</td></tr>\n",
+       "\t<tr><th scope=row>4</th><td>62</td><td>313</td></tr>\n",
+       "\t<tr><th scope=row>5</th><td>56</td><td> NA</td></tr>\n",
+       "\t<tr><th scope=row>6</th><td>66</td><td> NA</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 6 × 2\n",
+       "\\begin{tabular}{r|ll}\n",
+       "  & Temp & Solar.R\\\\\n",
+       "  & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t1 & 67 & 190\\\\\n",
+       "\t2 & 72 & 118\\\\\n",
+       "\t3 & 74 & 149\\\\\n",
+       "\t4 & 62 & 313\\\\\n",
+       "\t5 & 56 &  NA\\\\\n",
+       "\t6 & 66 &  NA\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 6 × 2\n",
+       "\n",
+       "| <!--/--> | Temp &lt;int&gt; | Solar.R &lt;int&gt; |\n",
+       "|---|---|---|\n",
+       "| 1 | 67 | 190 |\n",
+       "| 2 | 72 | 118 |\n",
+       "| 3 | 74 | 149 |\n",
+       "| 4 | 62 | 313 |\n",
+       "| 5 | 56 |  NA |\n",
+       "| 6 | 66 |  NA |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "  Temp Solar.R\n",
+       "1 67   190    \n",
+       "2 72   118    \n",
+       "3 74   149    \n",
+       "4 62   313    \n",
+       "5 56    NA    \n",
+       "6 66    NA    "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "subsetAQ <- AQ[,c( \"Temp\",\"Solar.R\")]\n",
+    "head(subsetAQ)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "id": "626a546f-4dbf-419d-a4d7-0ff1aee78fb1",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 15 × 2</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Temp</th><th scope=col>Solar.R</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>120</th><td>97</td><td>203</td></tr>\n",
+       "\t<tr><th scope=row>122</th><td>96</td><td>237</td></tr>\n",
+       "\t<tr><th scope=row>121</th><td>94</td><td>225</td></tr>\n",
+       "\t<tr><th scope=row>123</th><td>94</td><td>188</td></tr>\n",
+       "\t<tr><th scope=row>42</th><td>93</td><td>259</td></tr>\n",
+       "\t<tr><th scope=row>126</th><td>93</td><td>183</td></tr>\n",
+       "\t<tr><th scope=row>127</th><td>93</td><td>189</td></tr>\n",
+       "\t<tr><th scope=row>43</th><td>92</td><td>250</td></tr>\n",
+       "\t<tr><th scope=row>69</th><td>92</td><td>267</td></tr>\n",
+       "\t<tr><th scope=row>70</th><td>92</td><td>272</td></tr>\n",
+       "\t<tr><th scope=row>102</th><td>92</td><td>222</td></tr>\n",
+       "\t<tr><th scope=row>125</th><td>92</td><td>197</td></tr>\n",
+       "\t<tr><th scope=row>75</th><td>91</td><td>291</td></tr>\n",
+       "\t<tr><th scope=row>124</th><td>91</td><td>167</td></tr>\n",
+       "\t<tr><th scope=row>40</th><td>90</td><td>291</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 15 × 2\n",
+       "\\begin{tabular}{r|ll}\n",
+       "  & Temp & Solar.R\\\\\n",
+       "  & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t120 & 97 & 203\\\\\n",
+       "\t122 & 96 & 237\\\\\n",
+       "\t121 & 94 & 225\\\\\n",
+       "\t123 & 94 & 188\\\\\n",
+       "\t42 & 93 & 259\\\\\n",
+       "\t126 & 93 & 183\\\\\n",
+       "\t127 & 93 & 189\\\\\n",
+       "\t43 & 92 & 250\\\\\n",
+       "\t69 & 92 & 267\\\\\n",
+       "\t70 & 92 & 272\\\\\n",
+       "\t102 & 92 & 222\\\\\n",
+       "\t125 & 92 & 197\\\\\n",
+       "\t75 & 91 & 291\\\\\n",
+       "\t124 & 91 & 167\\\\\n",
+       "\t40 & 90 & 291\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 15 × 2\n",
+       "\n",
+       "| <!--/--> | Temp &lt;int&gt; | Solar.R &lt;int&gt; |\n",
+       "|---|---|---|\n",
+       "| 120 | 97 | 203 |\n",
+       "| 122 | 96 | 237 |\n",
+       "| 121 | 94 | 225 |\n",
+       "| 123 | 94 | 188 |\n",
+       "| 42 | 93 | 259 |\n",
+       "| 126 | 93 | 183 |\n",
+       "| 127 | 93 | 189 |\n",
+       "| 43 | 92 | 250 |\n",
+       "| 69 | 92 | 267 |\n",
+       "| 70 | 92 | 272 |\n",
+       "| 102 | 92 | 222 |\n",
+       "| 125 | 92 | 197 |\n",
+       "| 75 | 91 | 291 |\n",
+       "| 124 | 91 | 167 |\n",
+       "| 40 | 90 | 291 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "    Temp Solar.R\n",
+       "120 97   203    \n",
+       "122 96   237    \n",
+       "121 94   225    \n",
+       "123 94   188    \n",
+       "42  93   259    \n",
+       "126 93   183    \n",
+       "127 93   189    \n",
+       "43  92   250    \n",
+       "69  92   267    \n",
+       "70  92   272    \n",
+       "102 92   222    \n",
+       "125 92   197    \n",
+       "75  91   291    \n",
+       "124 91   167    \n",
+       "40  90   291    "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "Temp_sorted <- subsetAQ[order(subsetAQ$Temp, decreasing = TRUE),]\n",
+    "head(Temp_sorted, 15)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "da5dec29-e875-4e06-a495-091ec8331ed7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 15 × 2</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Temp</th><th scope=col>Solar.R</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>16</th><td>64</td><td>334</td></tr>\n",
+       "\t<tr><th scope=row>45</th><td>80</td><td>332</td></tr>\n",
+       "\t<tr><th scope=row>41</th><td>87</td><td>323</td></tr>\n",
+       "\t<tr><th scope=row>19</th><td>68</td><td>322</td></tr>\n",
+       "\t<tr><th scope=row>46</th><td>79</td><td>322</td></tr>\n",
+       "\t<tr><th scope=row>22</th><td>73</td><td>320</td></tr>\n",
+       "\t<tr><th scope=row>67</th><td>83</td><td>314</td></tr>\n",
+       "\t<tr><th scope=row>4</th><td>62</td><td>313</td></tr>\n",
+       "\t<tr><th scope=row>17</th><td>66</td><td>307</td></tr>\n",
+       "\t<tr><th scope=row>7</th><td>65</td><td>299</td></tr>\n",
+       "\t<tr><th scope=row>84</th><td>82</td><td>295</td></tr>\n",
+       "\t<tr><th scope=row>85</th><td>86</td><td>294</td></tr>\n",
+       "\t<tr><th scope=row>40</th><td>90</td><td>291</td></tr>\n",
+       "\t<tr><th scope=row>75</th><td>91</td><td>291</td></tr>\n",
+       "\t<tr><th scope=row>13</th><td>66</td><td>290</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 15 × 2\n",
+       "\\begin{tabular}{r|ll}\n",
+       "  & Temp & Solar.R\\\\\n",
+       "  & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t16 & 64 & 334\\\\\n",
+       "\t45 & 80 & 332\\\\\n",
+       "\t41 & 87 & 323\\\\\n",
+       "\t19 & 68 & 322\\\\\n",
+       "\t46 & 79 & 322\\\\\n",
+       "\t22 & 73 & 320\\\\\n",
+       "\t67 & 83 & 314\\\\\n",
+       "\t4 & 62 & 313\\\\\n",
+       "\t17 & 66 & 307\\\\\n",
+       "\t7 & 65 & 299\\\\\n",
+       "\t84 & 82 & 295\\\\\n",
+       "\t85 & 86 & 294\\\\\n",
+       "\t40 & 90 & 291\\\\\n",
+       "\t75 & 91 & 291\\\\\n",
+       "\t13 & 66 & 290\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 15 × 2\n",
+       "\n",
+       "| <!--/--> | Temp &lt;int&gt; | Solar.R &lt;int&gt; |\n",
+       "|---|---|---|\n",
+       "| 16 | 64 | 334 |\n",
+       "| 45 | 80 | 332 |\n",
+       "| 41 | 87 | 323 |\n",
+       "| 19 | 68 | 322 |\n",
+       "| 46 | 79 | 322 |\n",
+       "| 22 | 73 | 320 |\n",
+       "| 67 | 83 | 314 |\n",
+       "| 4 | 62 | 313 |\n",
+       "| 17 | 66 | 307 |\n",
+       "| 7 | 65 | 299 |\n",
+       "| 84 | 82 | 295 |\n",
+       "| 85 | 86 | 294 |\n",
+       "| 40 | 90 | 291 |\n",
+       "| 75 | 91 | 291 |\n",
+       "| 13 | 66 | 290 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "   Temp Solar.R\n",
+       "16 64   334    \n",
+       "45 80   332    \n",
+       "41 87   323    \n",
+       "19 68   322    \n",
+       "46 79   322    \n",
+       "22 73   320    \n",
+       "67 83   314    \n",
+       "4  62   313    \n",
+       "17 66   307    \n",
+       "7  65   299    \n",
+       "84 82   295    \n",
+       "85 86   294    \n",
+       "40 90   291    \n",
+       "75 91   291    \n",
+       "13 66   290    "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "Solar.R_sorted <- subsetAQ[order(subsetAQ$Solar.R, decreasing=TRUE),]\n",
+    "head(Solar.R_sorted, 15)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b377d82a",
+   "metadata": {
+    "pycharm": {
+     "name": "#%% md\n"
+    }
+   },
+   "source": [
+    "#### Question 3\n",
+    "\n",
+    "* Sort the airquality data frame on its `Temp` in decreasing order and `Solar.R` in increasing order\n",
+    "* Display only the first 15 lines of your table"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "id": "34a70e10",
+   "metadata": {
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 15 × 2</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Temp</th><th scope=col>Solar.R</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>120</th><td>97</td><td>203</td></tr>\n",
+       "\t<tr><th scope=row>122</th><td>96</td><td>237</td></tr>\n",
+       "\t<tr><th scope=row>121</th><td>94</td><td>225</td></tr>\n",
+       "\t<tr><th scope=row>123</th><td>94</td><td>188</td></tr>\n",
+       "\t<tr><th scope=row>42</th><td>93</td><td>259</td></tr>\n",
+       "\t<tr><th scope=row>126</th><td>93</td><td>183</td></tr>\n",
+       "\t<tr><th scope=row>127</th><td>93</td><td>189</td></tr>\n",
+       "\t<tr><th scope=row>43</th><td>92</td><td>250</td></tr>\n",
+       "\t<tr><th scope=row>69</th><td>92</td><td>267</td></tr>\n",
+       "\t<tr><th scope=row>70</th><td>92</td><td>272</td></tr>\n",
+       "\t<tr><th scope=row>102</th><td>92</td><td>222</td></tr>\n",
+       "\t<tr><th scope=row>125</th><td>92</td><td>197</td></tr>\n",
+       "\t<tr><th scope=row>75</th><td>91</td><td>291</td></tr>\n",
+       "\t<tr><th scope=row>124</th><td>91</td><td>167</td></tr>\n",
+       "\t<tr><th scope=row>40</th><td>90</td><td>291</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 15 × 2\n",
+       "\\begin{tabular}{r|ll}\n",
+       "  & Temp & Solar.R\\\\\n",
+       "  & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t120 & 97 & 203\\\\\n",
+       "\t122 & 96 & 237\\\\\n",
+       "\t121 & 94 & 225\\\\\n",
+       "\t123 & 94 & 188\\\\\n",
+       "\t42 & 93 & 259\\\\\n",
+       "\t126 & 93 & 183\\\\\n",
+       "\t127 & 93 & 189\\\\\n",
+       "\t43 & 92 & 250\\\\\n",
+       "\t69 & 92 & 267\\\\\n",
+       "\t70 & 92 & 272\\\\\n",
+       "\t102 & 92 & 222\\\\\n",
+       "\t125 & 92 & 197\\\\\n",
+       "\t75 & 91 & 291\\\\\n",
+       "\t124 & 91 & 167\\\\\n",
+       "\t40 & 90 & 291\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 15 × 2\n",
+       "\n",
+       "| <!--/--> | Temp &lt;int&gt; | Solar.R &lt;int&gt; |\n",
+       "|---|---|---|\n",
+       "| 120 | 97 | 203 |\n",
+       "| 122 | 96 | 237 |\n",
+       "| 121 | 94 | 225 |\n",
+       "| 123 | 94 | 188 |\n",
+       "| 42 | 93 | 259 |\n",
+       "| 126 | 93 | 183 |\n",
+       "| 127 | 93 | 189 |\n",
+       "| 43 | 92 | 250 |\n",
+       "| 69 | 92 | 267 |\n",
+       "| 70 | 92 | 272 |\n",
+       "| 102 | 92 | 222 |\n",
+       "| 125 | 92 | 197 |\n",
+       "| 75 | 91 | 291 |\n",
+       "| 124 | 91 | 167 |\n",
+       "| 40 | 90 | 291 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "    Temp Solar.R\n",
+       "120 97   203    \n",
+       "122 96   237    \n",
+       "121 94   225    \n",
+       "123 94   188    \n",
+       "42  93   259    \n",
+       "126 93   183    \n",
+       "127 93   189    \n",
+       "43  92   250    \n",
+       "69  92   267    \n",
+       "70  92   272    \n",
+       "102 92   222    \n",
+       "125 92   197    \n",
+       "75  91   291    \n",
+       "124 91   167    \n",
+       "40  90   291    "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "Temp_sorted2 <- subsetAQ[order(subsetAQ$Temp, decreasing = TRUE),]\n",
+    "head(Temp_sorted2,15)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "id": "bd3866e3-bc12-4db6-8693-6a4313ab0e4a",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 15 × 2</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Temp</th><th scope=col>Solar.R</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>82</th><td>74</td><td> 7</td></tr>\n",
+       "\t<tr><th scope=row>21</th><td>59</td><td> 8</td></tr>\n",
+       "\t<tr><th scope=row>28</th><td>67</td><td>13</td></tr>\n",
+       "\t<tr><th scope=row>145</th><td>71</td><td>14</td></tr>\n",
+       "\t<tr><th scope=row>9</th><td>61</td><td>19</td></tr>\n",
+       "\t<tr><th scope=row>148</th><td>63</td><td>20</td></tr>\n",
+       "\t<tr><th scope=row>94</th><td>81</td><td>24</td></tr>\n",
+       "\t<tr><th scope=row>137</th><td>71</td><td>24</td></tr>\n",
+       "\t<tr><th scope=row>23</th><td>61</td><td>25</td></tr>\n",
+       "\t<tr><th scope=row>141</th><td>76</td><td>27</td></tr>\n",
+       "\t<tr><th scope=row>60</th><td>77</td><td>31</td></tr>\n",
+       "\t<tr><th scope=row>114</th><td>72</td><td>36</td></tr>\n",
+       "\t<tr><th scope=row>49</th><td>65</td><td>37</td></tr>\n",
+       "\t<tr><th scope=row>20</th><td>62</td><td>44</td></tr>\n",
+       "\t<tr><th scope=row>58</th><td>73</td><td>47</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 15 × 2\n",
+       "\\begin{tabular}{r|ll}\n",
+       "  & Temp & Solar.R\\\\\n",
+       "  & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t82 & 74 &  7\\\\\n",
+       "\t21 & 59 &  8\\\\\n",
+       "\t28 & 67 & 13\\\\\n",
+       "\t145 & 71 & 14\\\\\n",
+       "\t9 & 61 & 19\\\\\n",
+       "\t148 & 63 & 20\\\\\n",
+       "\t94 & 81 & 24\\\\\n",
+       "\t137 & 71 & 24\\\\\n",
+       "\t23 & 61 & 25\\\\\n",
+       "\t141 & 76 & 27\\\\\n",
+       "\t60 & 77 & 31\\\\\n",
+       "\t114 & 72 & 36\\\\\n",
+       "\t49 & 65 & 37\\\\\n",
+       "\t20 & 62 & 44\\\\\n",
+       "\t58 & 73 & 47\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 15 × 2\n",
+       "\n",
+       "| <!--/--> | Temp &lt;int&gt; | Solar.R &lt;int&gt; |\n",
+       "|---|---|---|\n",
+       "| 82 | 74 |  7 |\n",
+       "| 21 | 59 |  8 |\n",
+       "| 28 | 67 | 13 |\n",
+       "| 145 | 71 | 14 |\n",
+       "| 9 | 61 | 19 |\n",
+       "| 148 | 63 | 20 |\n",
+       "| 94 | 81 | 24 |\n",
+       "| 137 | 71 | 24 |\n",
+       "| 23 | 61 | 25 |\n",
+       "| 141 | 76 | 27 |\n",
+       "| 60 | 77 | 31 |\n",
+       "| 114 | 72 | 36 |\n",
+       "| 49 | 65 | 37 |\n",
+       "| 20 | 62 | 44 |\n",
+       "| 58 | 73 | 47 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "    Temp Solar.R\n",
+       "82  74    7     \n",
+       "21  59    8     \n",
+       "28  67   13     \n",
+       "145 71   14     \n",
+       "9   61   19     \n",
+       "148 63   20     \n",
+       "94  81   24     \n",
+       "137 71   24     \n",
+       "23  61   25     \n",
+       "141 76   27     \n",
+       "60  77   31     \n",
+       "114 72   36     \n",
+       "49  65   37     \n",
+       "20  62   44     \n",
+       "58  73   47     "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "Solar.R_sorted2<- subsetAQ[order(subsetAQ$Solar.R, decreasing = FALSE),]\n",
+    "head(Solar.R_sorted2, 15)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "25e9a77e",
+   "metadata": {
+    "pycharm": {
+     "name": "#%% md\n"
+    }
+   },
+   "source": [
+    "#### Question 4\n",
+    "\n",
+    "* There are various ways to select a subset of observations from a data frame.\n",
+    "\n",
+    "* Consult your [R Reference Card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf), see `Data Selection and Manipulation` section.\n",
+    "  * What operations can you use to select all observations where the temperature is 72. Give at least two different answers to this question\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "id": "436916fb-0824-4fa9-af24-883d3a33cd8f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 6 × 6</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Ozone</th><th scope=col>Solar.R</th><th scope=col>Wind</th><th scope=col>Temp</th><th scope=col>Month</th><th scope=col>Day</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>1</th><td>41</td><td>190</td><td> 7.4</td><td>67</td><td>5</td><td>1</td></tr>\n",
+       "\t<tr><th scope=row>2</th><td>36</td><td>118</td><td> 8.0</td><td>72</td><td>5</td><td>2</td></tr>\n",
+       "\t<tr><th scope=row>3</th><td>12</td><td>149</td><td>12.6</td><td>74</td><td>5</td><td>3</td></tr>\n",
+       "\t<tr><th scope=row>4</th><td>18</td><td>313</td><td>11.5</td><td>62</td><td>5</td><td>4</td></tr>\n",
+       "\t<tr><th scope=row>5</th><td>NA</td><td> NA</td><td>14.3</td><td>56</td><td>5</td><td>5</td></tr>\n",
+       "\t<tr><th scope=row>6</th><td>28</td><td> NA</td><td>14.9</td><td>66</td><td>5</td><td>6</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 6 × 6\n",
+       "\\begin{tabular}{r|llllll}\n",
+       "  & Ozone & Solar.R & Wind & Temp & Month & Day\\\\\n",
+       "  & <int> & <int> & <dbl> & <int> & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t1 & 41 & 190 &  7.4 & 67 & 5 & 1\\\\\n",
+       "\t2 & 36 & 118 &  8.0 & 72 & 5 & 2\\\\\n",
+       "\t3 & 12 & 149 & 12.6 & 74 & 5 & 3\\\\\n",
+       "\t4 & 18 & 313 & 11.5 & 62 & 5 & 4\\\\\n",
+       "\t5 & NA &  NA & 14.3 & 56 & 5 & 5\\\\\n",
+       "\t6 & 28 &  NA & 14.9 & 66 & 5 & 6\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 6 × 6\n",
+       "\n",
+       "| <!--/--> | Ozone &lt;int&gt; | Solar.R &lt;int&gt; | Wind &lt;dbl&gt; | Temp &lt;int&gt; | Month &lt;int&gt; | Day &lt;int&gt; |\n",
+       "|---|---|---|---|---|---|---|\n",
+       "| 1 | 41 | 190 |  7.4 | 67 | 5 | 1 |\n",
+       "| 2 | 36 | 118 |  8.0 | 72 | 5 | 2 |\n",
+       "| 3 | 12 | 149 | 12.6 | 74 | 5 | 3 |\n",
+       "| 4 | 18 | 313 | 11.5 | 62 | 5 | 4 |\n",
+       "| 5 | NA |  NA | 14.3 | 56 | 5 | 5 |\n",
+       "| 6 | 28 |  NA | 14.9 | 66 | 5 | 6 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "  Ozone Solar.R Wind Temp Month Day\n",
+       "1 41    190      7.4 67   5     1  \n",
+       "2 36    118      8.0 72   5     2  \n",
+       "3 12    149     12.6 74   5     3  \n",
+       "4 18    313     11.5 62   5     4  \n",
+       "5 NA     NA     14.3 56   5     5  \n",
+       "6 28     NA     14.9 66   5     6  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "head(AQ)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "id": "5f6a8531",
+   "metadata": {
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 3 × 6</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Ozone</th><th scope=col>Solar.R</th><th scope=col>Wind</th><th scope=col>Temp</th><th scope=col>Month</th><th scope=col>Day</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>2</th><td>36</td><td>118</td><td> 8.0</td><td>72</td><td>5</td><td> 2</td></tr>\n",
+       "\t<tr><th scope=row>48</th><td>37</td><td>284</td><td>20.7</td><td>72</td><td>6</td><td>17</td></tr>\n",
+       "\t<tr><th scope=row>114</th><td> 9</td><td> 36</td><td>14.3</td><td>72</td><td>8</td><td>22</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 3 × 6\n",
+       "\\begin{tabular}{r|llllll}\n",
+       "  & Ozone & Solar.R & Wind & Temp & Month & Day\\\\\n",
+       "  & <int> & <int> & <dbl> & <int> & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t2 & 36 & 118 &  8.0 & 72 & 5 &  2\\\\\n",
+       "\t48 & 37 & 284 & 20.7 & 72 & 6 & 17\\\\\n",
+       "\t114 &  9 &  36 & 14.3 & 72 & 8 & 22\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 3 × 6\n",
+       "\n",
+       "| <!--/--> | Ozone &lt;int&gt; | Solar.R &lt;int&gt; | Wind &lt;dbl&gt; | Temp &lt;int&gt; | Month &lt;int&gt; | Day &lt;int&gt; |\n",
+       "|---|---|---|---|---|---|---|\n",
+       "| 2 | 36 | 118 |  8.0 | 72 | 5 |  2 |\n",
+       "| 48 | 37 | 284 | 20.7 | 72 | 6 | 17 |\n",
+       "| 114 |  9 |  36 | 14.3 | 72 | 8 | 22 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "    Ozone Solar.R Wind Temp Month Day\n",
+       "2   36    118      8.0 72   5      2 \n",
+       "48  37    284     20.7 72   6     17 \n",
+       "114  9     36     14.3 72   8     22 "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "AQ[AQ$Temp == 72,] #we can use logical operators to find the value that we want with a direct equality"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "id": "b0436284-450c-40ac-9344-a2e5cbbb6d50",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 3 × 6</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Ozone</th><th scope=col>Solar.R</th><th scope=col>Wind</th><th scope=col>Temp</th><th scope=col>Month</th><th scope=col>Day</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>2</th><td>36</td><td>118</td><td> 8.0</td><td>72</td><td>5</td><td> 2</td></tr>\n",
+       "\t<tr><th scope=row>48</th><td>37</td><td>284</td><td>20.7</td><td>72</td><td>6</td><td>17</td></tr>\n",
+       "\t<tr><th scope=row>114</th><td> 9</td><td> 36</td><td>14.3</td><td>72</td><td>8</td><td>22</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 3 × 6\n",
+       "\\begin{tabular}{r|llllll}\n",
+       "  & Ozone & Solar.R & Wind & Temp & Month & Day\\\\\n",
+       "  & <int> & <int> & <dbl> & <int> & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t2 & 36 & 118 &  8.0 & 72 & 5 &  2\\\\\n",
+       "\t48 & 37 & 284 & 20.7 & 72 & 6 & 17\\\\\n",
+       "\t114 &  9 &  36 & 14.3 & 72 & 8 & 22\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 3 × 6\n",
+       "\n",
+       "| <!--/--> | Ozone &lt;int&gt; | Solar.R &lt;int&gt; | Wind &lt;dbl&gt; | Temp &lt;int&gt; | Month &lt;int&gt; | Day &lt;int&gt; |\n",
+       "|---|---|---|---|---|---|---|\n",
+       "| 2 | 36 | 118 |  8.0 | 72 | 5 |  2 |\n",
+       "| 48 | 37 | 284 | 20.7 | 72 | 6 | 17 |\n",
+       "| 114 |  9 |  36 | 14.3 | 72 | 8 | 22 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "    Ozone Solar.R Wind Temp Month Day\n",
+       "2   36    118      8.0 72   5      2 \n",
+       "48  37    284     20.7 72   6     17 \n",
+       "114  9     36     14.3 72   8     22 "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "AQ[AQ$Temp < 73 & AQ$Temp >71,] #we can also use intervals to identify a range of interest "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f794ee74",
+   "metadata": {
+    "pycharm": {
+     "name": "#%% md\n"
+    }
+   },
+   "source": [
+    "#### Question 6\n",
+    "\n",
+    "* You may have noticed when working with the `airqulity` data that some values show as `NA`\n",
+    " * `NA` stands for not available, or missing values.\n",
+    "* A major part of data wrangling consists of cleaning missing values by either:\n",
+    "  * Dropping the lines that have missing values\n",
+    "   * Sometimes we can drop the column with missing values if the column is made of predominantly missing values\n",
+    "  * Imputing the missing values, which uses educated guesses (or more complex algorithms) to fill the missing values\n",
+    "  \n",
+    "* Find and remove all rows that are missing values for the `Solar.R` or `Ozone` variables\n",
+    "* Save the cleaned data to a new data frame called airquality_no_na\n",
+    "  * How many lines have been removed?\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "id": "4b5ade16",
+   "metadata": {
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 6 × 6</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Ozone</th><th scope=col>Solar.R</th><th scope=col>Wind</th><th scope=col>Temp</th><th scope=col>Month</th><th scope=col>Day</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>5</th><td>NA</td><td> NA</td><td>14.3</td><td>56</td><td>5</td><td> 5</td></tr>\n",
+       "\t<tr><th scope=row>10</th><td>NA</td><td>194</td><td> 8.6</td><td>69</td><td>5</td><td>10</td></tr>\n",
+       "\t<tr><th scope=row>25</th><td>NA</td><td> 66</td><td>16.6</td><td>57</td><td>5</td><td>25</td></tr>\n",
+       "\t<tr><th scope=row>26</th><td>NA</td><td>266</td><td>14.9</td><td>58</td><td>5</td><td>26</td></tr>\n",
+       "\t<tr><th scope=row>27</th><td>NA</td><td> NA</td><td> 8.0</td><td>57</td><td>5</td><td>27</td></tr>\n",
+       "\t<tr><th scope=row>32</th><td>NA</td><td>286</td><td> 8.6</td><td>78</td><td>6</td><td> 1</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 6 × 6\n",
+       "\\begin{tabular}{r|llllll}\n",
+       "  & Ozone & Solar.R & Wind & Temp & Month & Day\\\\\n",
+       "  & <int> & <int> & <dbl> & <int> & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t5 & NA &  NA & 14.3 & 56 & 5 &  5\\\\\n",
+       "\t10 & NA & 194 &  8.6 & 69 & 5 & 10\\\\\n",
+       "\t25 & NA &  66 & 16.6 & 57 & 5 & 25\\\\\n",
+       "\t26 & NA & 266 & 14.9 & 58 & 5 & 26\\\\\n",
+       "\t27 & NA &  NA &  8.0 & 57 & 5 & 27\\\\\n",
+       "\t32 & NA & 286 &  8.6 & 78 & 6 &  1\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 6 × 6\n",
+       "\n",
+       "| <!--/--> | Ozone &lt;int&gt; | Solar.R &lt;int&gt; | Wind &lt;dbl&gt; | Temp &lt;int&gt; | Month &lt;int&gt; | Day &lt;int&gt; |\n",
+       "|---|---|---|---|---|---|---|\n",
+       "| 5 | NA |  NA | 14.3 | 56 | 5 |  5 |\n",
+       "| 10 | NA | 194 |  8.6 | 69 | 5 | 10 |\n",
+       "| 25 | NA |  66 | 16.6 | 57 | 5 | 25 |\n",
+       "| 26 | NA | 266 | 14.9 | 58 | 5 | 26 |\n",
+       "| 27 | NA |  NA |  8.0 | 57 | 5 | 27 |\n",
+       "| 32 | NA | 286 |  8.6 | 78 | 6 |  1 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "   Ozone Solar.R Wind Temp Month Day\n",
+       "5  NA     NA     14.3 56   5      5 \n",
+       "10 NA    194      8.6 69   5     10 \n",
+       "25 NA     66     16.6 57   5     25 \n",
+       "26 NA    266     14.9 58   5     26 \n",
+       "27 NA     NA      8.0 57   5     27 \n",
+       "32 NA    286      8.6 78   6      1 "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "head(AQ[is.na(AQ$Ozone),]) #we want to identify the places in the dataset that have NA values"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "id": "3bda50f0-6783-4f2c-a094-32e38dc75fac",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 6 × 6</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Ozone</th><th scope=col>Solar.R</th><th scope=col>Wind</th><th scope=col>Temp</th><th scope=col>Month</th><th scope=col>Day</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>1</th><td>41</td><td>190</td><td> 7.4</td><td>67</td><td>5</td><td>1</td></tr>\n",
+       "\t<tr><th scope=row>2</th><td>36</td><td>118</td><td> 8.0</td><td>72</td><td>5</td><td>2</td></tr>\n",
+       "\t<tr><th scope=row>3</th><td>12</td><td>149</td><td>12.6</td><td>74</td><td>5</td><td>3</td></tr>\n",
+       "\t<tr><th scope=row>4</th><td>18</td><td>313</td><td>11.5</td><td>62</td><td>5</td><td>4</td></tr>\n",
+       "\t<tr><th scope=row>6</th><td>28</td><td> NA</td><td>14.9</td><td>66</td><td>5</td><td>6</td></tr>\n",
+       "\t<tr><th scope=row>7</th><td>23</td><td>299</td><td> 8.6</td><td>65</td><td>5</td><td>7</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 6 × 6\n",
+       "\\begin{tabular}{r|llllll}\n",
+       "  & Ozone & Solar.R & Wind & Temp & Month & Day\\\\\n",
+       "  & <int> & <int> & <dbl> & <int> & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t1 & 41 & 190 &  7.4 & 67 & 5 & 1\\\\\n",
+       "\t2 & 36 & 118 &  8.0 & 72 & 5 & 2\\\\\n",
+       "\t3 & 12 & 149 & 12.6 & 74 & 5 & 3\\\\\n",
+       "\t4 & 18 & 313 & 11.5 & 62 & 5 & 4\\\\\n",
+       "\t6 & 28 &  NA & 14.9 & 66 & 5 & 6\\\\\n",
+       "\t7 & 23 & 299 &  8.6 & 65 & 5 & 7\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 6 × 6\n",
+       "\n",
+       "| <!--/--> | Ozone &lt;int&gt; | Solar.R &lt;int&gt; | Wind &lt;dbl&gt; | Temp &lt;int&gt; | Month &lt;int&gt; | Day &lt;int&gt; |\n",
+       "|---|---|---|---|---|---|---|\n",
+       "| 1 | 41 | 190 |  7.4 | 67 | 5 | 1 |\n",
+       "| 2 | 36 | 118 |  8.0 | 72 | 5 | 2 |\n",
+       "| 3 | 12 | 149 | 12.6 | 74 | 5 | 3 |\n",
+       "| 4 | 18 | 313 | 11.5 | 62 | 5 | 4 |\n",
+       "| 6 | 28 |  NA | 14.9 | 66 | 5 | 6 |\n",
+       "| 7 | 23 | 299 |  8.6 | 65 | 5 | 7 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "  Ozone Solar.R Wind Temp Month Day\n",
+       "1 41    190      7.4 67   5     1  \n",
+       "2 36    118      8.0 72   5     2  \n",
+       "3 12    149     12.6 74   5     3  \n",
+       "4 18    313     11.5 62   5     4  \n",
+       "6 28     NA     14.9 66   5     6  \n",
+       "7 23    299      8.6 65   5     7  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "airquality_no_na <- AQ[!is.na(AQ$Ozone),] #we remove the NA values from the Ozone column in the dataset\n",
+    "head(airquality_no_na)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 119,
+   "id": "6a1e55c0-3608-47ea-bc35-7c03c4a52f2f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "153"
+      ],
+      "text/latex": [
+       "153"
+      ],
+      "text/markdown": [
+       "153"
+      ],
+      "text/plain": [
+       "[1] 153"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "116"
+      ],
+      "text/latex": [
+       "116"
+      ],
+      "text/markdown": [
+       "116"
+      ],
+      "text/plain": [
+       "[1] 116"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "37"
+      ],
+      "text/latex": [
+       "37"
+      ],
+      "text/markdown": [
+       "37"
+      ],
+      "text/plain": [
+       "[1] 37"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "nrow(AQ) \n",
+    "nrow(airquality_no_na)\n",
+    "nrow(AQ) - nrow(airquality_no_na) #we removed 37 rows"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "47fab9ee",
+   "metadata": {
+    "pycharm": {
+     "name": "#%% md\n"
+    }
+   },
+   "source": [
+    "#### Question 7\n",
+    "* Let's use a different strategy and impute the missing value.\n",
+    "  * replace the missing values for Solar.R using that month's average.\n",
+    "  * Example:\n",
+    "    * The missing value for line 6 should be replaced with the average for month 5.\n",
+    "    * The missing value for line 97 should be replaced with the average for month 8."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "id": "fe11d9dd",
+   "metadata": {
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 7 × 6</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Ozone</th><th scope=col>Solar.R</th><th scope=col>Wind</th><th scope=col>Temp</th><th scope=col>Month</th><th scope=col>Day</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>5</th><td>NA</td><td>NA</td><td>14.3</td><td>56</td><td>5</td><td> 5</td></tr>\n",
+       "\t<tr><th scope=row>6</th><td>28</td><td>NA</td><td>14.9</td><td>66</td><td>5</td><td> 6</td></tr>\n",
+       "\t<tr><th scope=row>11</th><td> 7</td><td>NA</td><td> 6.9</td><td>74</td><td>5</td><td>11</td></tr>\n",
+       "\t<tr><th scope=row>27</th><td>NA</td><td>NA</td><td> 8.0</td><td>57</td><td>5</td><td>27</td></tr>\n",
+       "\t<tr><th scope=row>96</th><td>78</td><td>NA</td><td> 6.9</td><td>86</td><td>8</td><td> 4</td></tr>\n",
+       "\t<tr><th scope=row>97</th><td>35</td><td>NA</td><td> 7.4</td><td>85</td><td>8</td><td> 5</td></tr>\n",
+       "\t<tr><th scope=row>98</th><td>66</td><td>NA</td><td> 4.6</td><td>87</td><td>8</td><td> 6</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 7 × 6\n",
+       "\\begin{tabular}{r|llllll}\n",
+       "  & Ozone & Solar.R & Wind & Temp & Month & Day\\\\\n",
+       "  & <int> & <int> & <dbl> & <int> & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t5 & NA & NA & 14.3 & 56 & 5 &  5\\\\\n",
+       "\t6 & 28 & NA & 14.9 & 66 & 5 &  6\\\\\n",
+       "\t11 &  7 & NA &  6.9 & 74 & 5 & 11\\\\\n",
+       "\t27 & NA & NA &  8.0 & 57 & 5 & 27\\\\\n",
+       "\t96 & 78 & NA &  6.9 & 86 & 8 &  4\\\\\n",
+       "\t97 & 35 & NA &  7.4 & 85 & 8 &  5\\\\\n",
+       "\t98 & 66 & NA &  4.6 & 87 & 8 &  6\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 7 × 6\n",
+       "\n",
+       "| <!--/--> | Ozone &lt;int&gt; | Solar.R &lt;int&gt; | Wind &lt;dbl&gt; | Temp &lt;int&gt; | Month &lt;int&gt; | Day &lt;int&gt; |\n",
+       "|---|---|---|---|---|---|---|\n",
+       "| 5 | NA | NA | 14.3 | 56 | 5 |  5 |\n",
+       "| 6 | 28 | NA | 14.9 | 66 | 5 |  6 |\n",
+       "| 11 |  7 | NA |  6.9 | 74 | 5 | 11 |\n",
+       "| 27 | NA | NA |  8.0 | 57 | 5 | 27 |\n",
+       "| 96 | 78 | NA |  6.9 | 86 | 8 |  4 |\n",
+       "| 97 | 35 | NA |  7.4 | 85 | 8 |  5 |\n",
+       "| 98 | 66 | NA |  4.6 | 87 | 8 |  6 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "   Ozone Solar.R Wind Temp Month Day\n",
+       "5  NA    NA      14.3 56   5      5 \n",
+       "6  28    NA      14.9 66   5      6 \n",
+       "11  7    NA       6.9 74   5     11 \n",
+       "27 NA    NA       8.0 57   5     27 \n",
+       "96 78    NA       6.9 86   8      4 \n",
+       "97 35    NA       7.4 85   8      5 \n",
+       "98 66    NA       4.6 87   8      6 "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "AQ[is.na(AQ$Solar.R),] #we identify the places where we need to replace the NA values"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 106,
+   "id": "a0933640-ffa1-4e22-881e-720ee9d03aa6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "May_SR <- AQ[AQ$Month == 5 &!is.na(AQ$Solar.R),] \n",
+    "#we isolate the values in the dataset\n",
+    "# we are focusing on the month of May and \n",
+    "#we remove the NA values from the Solar.R column so we can later take the average"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 107,
+   "id": "3bf16921-5029-475c-8d0a-645842a1b1e5",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 6 × 6</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Ozone</th><th scope=col>Solar.R</th><th scope=col>Wind</th><th scope=col>Temp</th><th scope=col>Month</th><th scope=col>Day</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>1</th><td>41</td><td>190</td><td> 7.4</td><td>67</td><td>5</td><td>1</td></tr>\n",
+       "\t<tr><th scope=row>2</th><td>36</td><td>118</td><td> 8.0</td><td>72</td><td>5</td><td>2</td></tr>\n",
+       "\t<tr><th scope=row>3</th><td>12</td><td>149</td><td>12.6</td><td>74</td><td>5</td><td>3</td></tr>\n",
+       "\t<tr><th scope=row>4</th><td>18</td><td>313</td><td>11.5</td><td>62</td><td>5</td><td>4</td></tr>\n",
+       "\t<tr><th scope=row>7</th><td>23</td><td>299</td><td> 8.6</td><td>65</td><td>5</td><td>7</td></tr>\n",
+       "\t<tr><th scope=row>8</th><td>19</td><td> 99</td><td>13.8</td><td>59</td><td>5</td><td>8</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 6 × 6\n",
+       "\\begin{tabular}{r|llllll}\n",
+       "  & Ozone & Solar.R & Wind & Temp & Month & Day\\\\\n",
+       "  & <int> & <int> & <dbl> & <int> & <int> & <int>\\\\\n",
+       "\\hline\n",
+       "\t1 & 41 & 190 &  7.4 & 67 & 5 & 1\\\\\n",
+       "\t2 & 36 & 118 &  8.0 & 72 & 5 & 2\\\\\n",
+       "\t3 & 12 & 149 & 12.6 & 74 & 5 & 3\\\\\n",
+       "\t4 & 18 & 313 & 11.5 & 62 & 5 & 4\\\\\n",
+       "\t7 & 23 & 299 &  8.6 & 65 & 5 & 7\\\\\n",
+       "\t8 & 19 &  99 & 13.8 & 59 & 5 & 8\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 6 × 6\n",
+       "\n",
+       "| <!--/--> | Ozone &lt;int&gt; | Solar.R &lt;int&gt; | Wind &lt;dbl&gt; | Temp &lt;int&gt; | Month &lt;int&gt; | Day &lt;int&gt; |\n",
+       "|---|---|---|---|---|---|---|\n",
+       "| 1 | 41 | 190 |  7.4 | 67 | 5 | 1 |\n",
+       "| 2 | 36 | 118 |  8.0 | 72 | 5 | 2 |\n",
+       "| 3 | 12 | 149 | 12.6 | 74 | 5 | 3 |\n",
+       "| 4 | 18 | 313 | 11.5 | 62 | 5 | 4 |\n",
+       "| 7 | 23 | 299 |  8.6 | 65 | 5 | 7 |\n",
+       "| 8 | 19 |  99 | 13.8 | 59 | 5 | 8 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "  Ozone Solar.R Wind Temp Month Day\n",
+       "1 41    190      7.4 67   5     1  \n",
+       "2 36    118      8.0 72   5     2  \n",
+       "3 12    149     12.6 74   5     3  \n",
+       "4 18    313     11.5 62   5     4  \n",
+       "7 23    299      8.6 65   5     7  \n",
+       "8 19     99     13.8 59   5     8  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "head(May_SR)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 110,
+   "id": "c661e9a6-0559-44cf-9c03-782727f815b8",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "May_avgSR <- mean(May_SR$Solar.R) #we take the average for May"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 115,
+   "id": "66bd1fdd-c299-4c61-809f-0ddd8c20396d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "AQ[is.na(AQ$Solar.R) & AQ$Month == 5,] <- May_avgSR \n",
+    "#we replace the NA values in May by the average Solar Radiation of May"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 112,
+   "id": "6a3a112c-8f08-4531-9324-cc646521eb5e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 3 × 6</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Ozone</th><th scope=col>Solar.R</th><th scope=col>Wind</th><th scope=col>Temp</th><th scope=col>Month</th><th scope=col>Day</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>96</th><td>78</td><td>NA</td><td>6.9</td><td>86</td><td>8</td><td>4</td></tr>\n",
+       "\t<tr><th scope=row>97</th><td>35</td><td>NA</td><td>7.4</td><td>85</td><td>8</td><td>5</td></tr>\n",
+       "\t<tr><th scope=row>98</th><td>66</td><td>NA</td><td>4.6</td><td>87</td><td>8</td><td>6</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 3 × 6\n",
+       "\\begin{tabular}{r|llllll}\n",
+       "  & Ozone & Solar.R & Wind & Temp & Month & Day\\\\\n",
+       "  & <dbl> & <dbl> & <dbl> & <dbl> & <dbl> & <dbl>\\\\\n",
+       "\\hline\n",
+       "\t96 & 78 & NA & 6.9 & 86 & 8 & 4\\\\\n",
+       "\t97 & 35 & NA & 7.4 & 85 & 8 & 5\\\\\n",
+       "\t98 & 66 & NA & 4.6 & 87 & 8 & 6\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 3 × 6\n",
+       "\n",
+       "| <!--/--> | Ozone &lt;dbl&gt; | Solar.R &lt;dbl&gt; | Wind &lt;dbl&gt; | Temp &lt;dbl&gt; | Month &lt;dbl&gt; | Day &lt;dbl&gt; |\n",
+       "|---|---|---|---|---|---|---|\n",
+       "| 96 | 78 | NA | 6.9 | 86 | 8 | 4 |\n",
+       "| 97 | 35 | NA | 7.4 | 85 | 8 | 5 |\n",
+       "| 98 | 66 | NA | 4.6 | 87 | 8 | 6 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "   Ozone Solar.R Wind Temp Month Day\n",
+       "96 78    NA      6.9  86   8     4  \n",
+       "97 35    NA      7.4  85   8     5  \n",
+       "98 66    NA      4.6  87   8     6  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "AQ[is.na(AQ$Solar.R), ] \n",
+    "#we check for the remaining NA values\n",
+    "#only the NA of august remain"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 118,
+   "id": "1331f103-29d2-4301-af0d-73d36a5c6ac4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 6 × 6</caption>\n",
+       "<thead>\n",
+       "\t<tr><th></th><th scope=col>Ozone</th><th scope=col>Solar.R</th><th scope=col>Wind</th><th scope=col>Temp</th><th scope=col>Month</th><th scope=col>Day</th></tr>\n",
+       "\t<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><th scope=row>93</th><td> 39</td><td> 83</td><td> 6.9</td><td>81</td><td>8</td><td>1</td></tr>\n",
+       "\t<tr><th scope=row>94</th><td>  9</td><td> 24</td><td>13.8</td><td>81</td><td>8</td><td>2</td></tr>\n",
+       "\t<tr><th scope=row>95</th><td> 16</td><td> 77</td><td> 7.4</td><td>82</td><td>8</td><td>3</td></tr>\n",
+       "\t<tr><th scope=row>99</th><td>122</td><td>255</td><td> 4.0</td><td>89</td><td>8</td><td>7</td></tr>\n",
+       "\t<tr><th scope=row>100</th><td> 89</td><td>229</td><td>10.3</td><td>90</td><td>8</td><td>8</td></tr>\n",
+       "\t<tr><th scope=row>101</th><td>110</td><td>207</td><td> 8.0</td><td>90</td><td>8</td><td>9</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 6 × 6\n",
+       "\\begin{tabular}{r|llllll}\n",
+       "  & Ozone & Solar.R & Wind & Temp & Month & Day\\\\\n",
+       "  & <dbl> & <dbl> & <dbl> & <dbl> & <dbl> & <dbl>\\\\\n",
+       "\\hline\n",
+       "\t93 &  39 &  83 &  6.9 & 81 & 8 & 1\\\\\n",
+       "\t94 &   9 &  24 & 13.8 & 81 & 8 & 2\\\\\n",
+       "\t95 &  16 &  77 &  7.4 & 82 & 8 & 3\\\\\n",
+       "\t99 & 122 & 255 &  4.0 & 89 & 8 & 7\\\\\n",
+       "\t100 &  89 & 229 & 10.3 & 90 & 8 & 8\\\\\n",
+       "\t101 & 110 & 207 &  8.0 & 90 & 8 & 9\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 6 × 6\n",
+       "\n",
+       "| <!--/--> | Ozone &lt;dbl&gt; | Solar.R &lt;dbl&gt; | Wind &lt;dbl&gt; | Temp &lt;dbl&gt; | Month &lt;dbl&gt; | Day &lt;dbl&gt; |\n",
+       "|---|---|---|---|---|---|---|\n",
+       "| 93 |  39 |  83 |  6.9 | 81 | 8 | 1 |\n",
+       "| 94 |   9 |  24 | 13.8 | 81 | 8 | 2 |\n",
+       "| 95 |  16 |  77 |  7.4 | 82 | 8 | 3 |\n",
+       "| 99 | 122 | 255 |  4.0 | 89 | 8 | 7 |\n",
+       "| 100 |  89 | 229 | 10.3 | 90 | 8 | 8 |\n",
+       "| 101 | 110 | 207 |  8.0 | 90 | 8 | 9 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "    Ozone Solar.R Wind Temp Month Day\n",
+       "93   39    83      6.9 81   8     1  \n",
+       "94    9    24     13.8 81   8     2  \n",
+       "95   16    77      7.4 82   8     3  \n",
+       "99  122   255      4.0 89   8     7  \n",
+       "100  89   229     10.3 90   8     8  \n",
+       "101 110   207      8.0 90   8     9  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "171.857142857143"
+      ],
+      "text/latex": [
+       "171.857142857143"
+      ],
+      "text/markdown": [
+       "171.857142857143"
+      ],
+      "text/plain": [
+       "[1] 171.8571"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "Aug_SR <- AQ[AQ$Month == 8 &!is.na(AQ$Solar.R),] \n",
+    "#isolate the values of Solar.R in august and remove the NA so we can take the average\n",
+    "\n",
+    "Aug_avgSR <- mean(Aug_SR$Solar.R) \n",
+    "#we take the average Solar.R in august\n",
+    "\n",
+    "AQ[is.na(AQ$Solar.R) & AQ$Month == 8,] <- Aug_avgSR\n",
+    "#we replace the NA values in august with the average Solar.R in august\n",
+    "\n",
+    "head(Aug_SR)\n",
+    "Aug_avgSR"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 117,
+   "id": "874c1ee0-53b3-4ba7-96ac-f7bbd830b9ab",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A data.frame: 0 × 6</caption>\n",
+       "<thead>\n",
+       "\t<tr><th scope=col>Ozone</th><th scope=col>Solar.R</th><th scope=col>Wind</th><th scope=col>Temp</th><th scope=col>Month</th><th scope=col>Day</th></tr>\n",
+       "\t<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A data.frame: 0 × 6\n",
+       "\\begin{tabular}{llllll}\n",
+       " Ozone & Solar.R & Wind & Temp & Month & Day\\\\\n",
+       " <dbl> & <dbl> & <dbl> & <dbl> & <dbl> & <dbl>\\\\\n",
+       "\\hline\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A data.frame: 0 × 6\n",
+       "\n",
+       "| Ozone &lt;dbl&gt; | Solar.R &lt;dbl&gt; | Wind &lt;dbl&gt; | Temp &lt;dbl&gt; | Month &lt;dbl&gt; | Day &lt;dbl&gt; |\n",
+       "|---|---|---|---|---|---|\n",
+       "\n"
+      ],
+      "text/plain": [
+       "     Ozone Solar.R Wind Temp Month Day"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "AQ[is.na(AQ$Solar.R), ] #we check for the remaining NA \n",
+    "# we notice that there is no more NA values to replace"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "R",
+   "language": "R",
+   "name": "ir"
+  },
+  "language_info": {
+   "codemirror_mode": "r",
+   "file_extension": ".r",
+   "mimetype": "text/x-r-source",
+   "name": "R",
+   "pygments_lexer": "r",
+   "version": "4.2.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
