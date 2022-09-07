@@ -1,0 +1,212 @@
+---
+title: "Week2HW"
+output: html_document
+date: "2022-09-07"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Question 0
+
+-   Draw a concepts diagram that uses all the following Github
+    terminology
+    -   Include any missing keywords that will simplify the concepts
+        diagrams
+
+`Push`, `Repository`, `Clone`, `Pull`, `Pull Request`, `Branch`,
+`Merging`, `Github Client`, `README file`, `Private or Public`
+
+``` {.R}
+# Add your photo here
+```
+
+#### Question 1 {#question-1}
+
+`matrix(c(1,2,3,4,5,6) , nrow = 3)`
+
+-   Running the expression produces the following matrix
+
+  --- ---
+  1   4
+  2   5
+  3   6
+  --- ---
+
+-   How can you modify the call to `matrix()` to produce the following
+    matrix instead?
+
+          col_1   col_2
+  ------- ------- -------
+  row_1   1       2
+  row_2   3       4
+  row_3   5       6
+
+-   Note that you need to name the columns (col_1 and col_2) and name
+    the rows (row_1, row_2, row_3)
+
+Hint: Use the `?` symbol to invoke the matrix documentation
+
+```{r}
+matrix_1 <- matrix(c(1,2,3,4,5,6) , nrow = 3)
+rownames(matrix_1) <- c("row_1", "row_2", "row_3")
+colnames(matrix_1) <- c("col_1", "col_2")
+matrix_1
+
+```
+
+#### Question 2
+
+-   Load then sort the airquality data frame on its `Temp` and `Solar.R`
+    columns in reverse order (largest to smallest values)
+    -   The function to sort a data frame is called order
+-   Display only the first 15 lines of your table
+
+```{r}
+data("airquality")
+AQ <- airquality
+
+subsetAQ <- AQ[,c( "Temp","Solar.R")]
+
+Temp_sorted <- subsetAQ[order(subsetAQ$Temp, decreasing = TRUE),]
+head(Temp_sorted, 15)
+
+
+Solar.R_sorted <- subsetAQ[order(subsetAQ$Solar.R, decreasing=TRUE),]
+head(Solar.R_sorted, 15)
+
+
+subsetAQ_sorted <- subsetAQ[order(subsetAQ$Temp,subsetAQ$Solar.R,decreasing = TRUE),]
+head(subsetAQ_sorted, 15)
+```
+
+
+#### Question 3
+
+-   Sort the airquality data frame on its `Temp` in decreasing order and
+    `Solar.R` in increasing order
+-   Display only the first 15 lines of your table
+
+```{r}
+#Temp_sorted2 <- subsetAQ[order(subsetAQ$Temp, decreasing = TRUE),]
+#head(Temp_sorted2,15)
+
+#Solar.R_sorted2<- subsetAQ[order(subsetAQ$Solar.R, decreasing = FALSE),]
+#head(Solar.R_sorted2, 15)
+
+#I had to use tidyverse, I don't know how to solve this question with regular commands
+library("tidyverse")
+
+subsetAQ2 <- subsetAQ %>% 
+select(Temp, Solar.R) %>% 
+distinct(Temp, Solar.R) %>% 
+arrange(., Solar.R) %>% 
+arrange(., desc(Temp)) 
+
+head(subsetAQ2, 15)
+```
+
+#### Question 4
+
+-   There are various ways to select a subset of observations from a
+    data frame.
+
+-   Consult your [R Reference
+    Card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf),
+    see `Data Selection and Manipulation` section.
+
+    -   What operations can you use to select all observations where the
+        temperature is 72. Give at least two different answers to this
+        question
+        
+        
+```{r}
+head(AQ)
+
+AQ[AQ$Temp == 72,] #we can use logical operators to find the value that we want with a direct equality
+
+
+AQ[AQ$Temp < 73 & AQ$Temp >71,] #we can also use intervals to identify a range of interest 
+```
+
+#### Question 6
+
+-   You may have noticed when working with the `airqulity` data that
+    some values show as `NA`
+-   `NA` stands for not available, or missing values.
+-   A major part of data wrangling consists of cleaning missing values
+    by either:
+    -   Dropping the lines that have missing values
+    -   Sometimes we can drop the column with missing values if the
+        column is made of predominantly missing values
+    -   Imputing the missing values, which uses educated guesses (or
+        more complex algorithms) to fill the missing values
+-   Find and remove all rows that are missing values for the `Solar.R`
+    or `Ozone` variables
+-   Save the cleaned data to a new data frame called airquality_no_na
+    -   How many lines have been removed?
+    
+    
+```{r}
+head(AQ[is.na(AQ$Ozone),]) #we want to identify the places in the dataset that have NA values
+
+airquality_no_na <- AQ[!is.na(AQ$Ozone),] #we remove the NA values from the Ozone column in the dataset
+head(airquality_no_na)
+
+nrow(AQ) 
+nrow(airquality_no_na)
+nrow(AQ) - nrow(airquality_no_na) #we removed 37 rows
+```
+
+#### Question 7
+
+-   Let\'s use a different strategy and impute the missing value.
+    -   replace the missing values for Solar.R using that month\'s
+        average.
+    -   Example:
+        -   The missing value for line 6 should be replaced with the
+            average for month 5.
+        -   The missing value for line 97 should be replaced with the
+            average for month 8.
+            
+```{r}
+AQ[is.na(AQ$Solar.R),] #we identify the places where we need to replace the NA values
+
+
+#Replacing the values for May 
+
+May_SR <- AQ[AQ$Month == 5 &!is.na(AQ$Solar.R),] 
+#we isolate the values in the dataset
+#we are focusing on the month of May and 
+#we remove the NA values from the Solar.R column so we can later take the average
+
+May_avgSR <- mean(May_SR$Solar.R) #we take the average for May
+
+AQ[is.na(AQ$Solar.R) & AQ$Month == 5,] <- May_avgSR 
+#we replace the NA values in May by the average Solar Radiation of May
+
+
+#Replacing the values for August 
+
+Aug_SR <- AQ[AQ$Month == 8 &!is.na(AQ$Solar.R),] 
+#isolate the values of Solar.R in august and remove the NA so we can take the average
+
+Aug_avgSR <- mean(Aug_SR$Solar.R) 
+Aug_avgSR
+#we take the average Solar.R in august
+
+AQ[is.na(AQ$Solar.R) & AQ$Month == 8,] <- Aug_avgSR
+#we replace the NA values in august with the average Solar.R in august
+
+AQ[is.na(AQ$Solar.R), ] #we check for the remaining NA 
+# we notice that there is no more NA values to replace
+
+head(AQ, 15)
+```
+
+
+
+
